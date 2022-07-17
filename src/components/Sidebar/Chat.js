@@ -1,14 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import Avatar from 'avataaars';
+import { generateRandomAvatarOptions } from '../../configs/avatar';
 
 const Chat = ({ users, redirect }) => {
+	const [config] = useState(generateRandomAvatarOptions);
+
 	return (
 		<div className='w-full cursor-pointer flex items-center p-5 hover:bg-gray-200' onClick={redirect}>
-			<div className='avatar mr-3'>
-				<div className='w-12 rounded-full'>
-					<img src='https://placeimg.com/192/192/people' />
-				</div>
-			</div>
+			<Avatar style={{ width: '48px', height: '48px', marginRight: '12px' }} avatarStyle='Circle' {...config} />
 			<div className='font-bold'>{users}</div>
 		</div>
 	);

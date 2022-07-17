@@ -26,11 +26,6 @@ const Main = () => {
 const TopBar = ({ email }) => {
 	return (
 		<div className='h-24 border-b-2 border-gray-200 flex items-center p-5'>
-			<div className='avatar mr-5'>
-				<div className='w-12 rounded-full'>
-					<img src='https://placeimg.com/192/192/people' />
-				</div>
-			</div>
 			<h1 className='font-bold text-2xl'>{email}</h1>
 		</div>
 	);

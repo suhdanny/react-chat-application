@@ -47,8 +47,6 @@ const SideBar = () => {
 
 	const chatExists = email => chats?.find(chat => chat.users.includes(user.email) && chat.users.includes(email));
 
-	console.log(chats);
-
 	const chatElements = chats
 		?.filter(chat => chat.users.includes(user.email))
 		.map(chat => {
