@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import Chat from './Chat';
 import { LogoutOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../firebase';
-import { db } from '../../firebase';
+import { auth } from '../../configs/firebase';
+import { db } from '../../configs/firebase';
 import { signOut } from 'firebase/auth';
 import { useAuth } from '../../contexts/AuthContext';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { collection, addDoc } from 'firebase/firestore';
+import { getOtherEmail } from '../../utils/getOtherEmail';
 import { Modal, Button } from 'react-daisyui';
 
 const SideBar = () => {
@@ -31,10 +32,6 @@ const SideBar = () => {
 		navigate('/');
 	};
 
-	const getOtherEmail = (users, currentUser) => {
-		return users?.filter(user => user !== currentUser.email)[0];
-	};
-
 	const redirect = id => {
 		navigate(`/chats/${id}`);
 	};
@@ -49,6 +46,8 @@ const SideBar = () => {
 	};
 
 	const chatExists = email => chats?.find(chat => chat.users.includes(user.email) && chat.users.includes(email));
+
+	console.log(chats);
 
 	const chatElements = chats
 		?.filter(chat => chat.users.includes(user.email))
