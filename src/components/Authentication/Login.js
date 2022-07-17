@@ -1,7 +1,7 @@
 import React from 'react';
 import { GoogleOutlined, FacebookOutlined } from '@ant-design/icons';
 import { GoogleAuthProvider, FacebookAuthProvider, signInWithRedirect } from 'firebase/auth';
-import { auth } from '../firebase';
+import { auth } from '../../firebase';
 
 const Login = () => {
 	return (
