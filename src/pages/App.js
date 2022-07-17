@@ -6,7 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 
 function App() {
 	return (
-		<div className='min-h-screen font-sans'>
+		<div className='min-h-screen font-sans box-border'>
 			<Routes>
 				<Route path='/' element={<Login />} />
 				<Route path='/chats' element={<Chats />}>

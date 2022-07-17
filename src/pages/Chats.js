@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Chats = () => {
 	return (
-		<div className='flex'>
+		<div className='flex min-h-screen overflow-hidden'>
 			<Sidebar />
 			<Outlet />
 		</div>
