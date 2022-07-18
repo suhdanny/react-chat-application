@@ -5,9 +5,9 @@ import { auth } from '../../configs/firebase';
 
 const Login = () => {
 	return (
-		<div className='min-h-screen flex justify-center items-center bg-gray-800'>
+		<div className='min-h-screen flex justify-center items-center bg-zinc-800'>
 			<div className='rounded-3xl text-center max-w-md py-9 px-16 border bg-white flex flex-col gap-7'>
-				<h2 className='font-bold text-2xl text-blue-700'>Welcome to Messenger!</h2>
+				<h2 className='font-bold text-2xl text-black'>Welcome to Messenger!</h2>
 				<div className='btn cursor-pointer' onClick={() => signInWithRedirect(auth, new GoogleAuthProvider())}>
 					<GoogleOutlined className='mr-2' /> Sign in with Google
 				</div>
