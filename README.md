@@ -1,6 +1,11 @@
 ## Messenger - Real Time Chat Application
 
-Messenger is a real-time chat application where you chat with anyone around the globe. Built with React, Tailwind & DaisyUI and Firebase.
+Messenger is a real-time chat application where you chat with anyone around the globe.
+
+Built with:
+- React (+ React Router, react-avatar, react-toggle-dark-mode)
+- Tailwind & DaisyUI
+- Firebase
 
 ## Features
 
