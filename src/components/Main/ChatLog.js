@@ -15,7 +15,7 @@ const ChatLog = ({ messages, user }) => {
 	const messageElements = messages?.map((msg, idx) => {
 		const sender = msg.sender === user.email;
 		return (
-			<div key={idx} className={`${sender ? 'bg-green-100 self-end' : 'bg-blue-100 self-start'} w-fit min-w-[100px] p-3 rounded-lg m-1`}>
+			<div key={idx} className={`${sender ? 'bg-green-200 self-end' : 'bg-blue-200 self-start'} w-fit min-w-[100px] p-3 rounded-lg m-1`}>
 				{msg.text}
 			</div>
 		);

@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Chats = () => {
 	return (
-		<div className='flex h-screen transition duration-500'>
+		<div className='flex h-screen dark:bg-zinc-800'>
 			<Sidebar />
 			<Outlet />
 		</div>
