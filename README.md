@@ -2,15 +2,16 @@
 
 Messenger is a real-time chat application where you chat with anyone around the globe.
 
-Built with:
-- React (+ React Router, react-avatar, react-toggle-dark-mode)
-- Tailwind & DaisyUI
-- Firebase
+**Built with:**
+
+-   [React](https://reactjs.org/) (+ [react-router](https://reactrouter.com/docs/en/v6), [react-avatar](https://www.npmjs.com/package/react-avatar), [react-toggle-dark-mode](https://github.com/JoseRFelix/react-toggle-dark-mode))
+-   [Tailwind](https://tailwindcss.com/) & [DaisyUI](https://daisyui.com/)
+-   [Firebase](https://firebase.google.com/) & [react-firebase-hooks](https://github.com/CSFrequency/react-firebase-hooks)
 
 ## Features
 
 -   Provide Google and Facebook log-in feature using Firebase authentication
--   Create private chat with existing users and start 1-1 conversation immediately
+-   Create chat with existing users and start 1-1 conversation immediately
 -   Supports light and dark mode
 -   Real time update of sending and receiving messages
 
