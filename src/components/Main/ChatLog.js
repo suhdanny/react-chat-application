@@ -22,7 +22,7 @@ const ChatLog = ({ messages, user }) => {
 	});
 
 	return (
-		<div className='h-[80vh] flex flex-col overflow-scroll p-8'>
+		<div className='h-[75vh] flex flex-col overflow-scroll p-8'>
 			{messageElements}
 			<div ref={bottom}></div>
 		</div>

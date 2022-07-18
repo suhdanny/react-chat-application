@@ -16,7 +16,7 @@ const BottomBar = ({ id, user }) => {
 	};
 
 	return (
-		<form className='h-16 flex items-center justify-center'>
+		<form className='h-20 flex items-center justify-center grow border-t-2 border-gray-200'>
 			<div className='form-control w-full p-5'>
 				<input
 					type='text'

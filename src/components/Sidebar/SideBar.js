@@ -69,7 +69,7 @@ const SideBar = () => {
 
 	return (
 		<>
-			<div className='w-80 min-h-full border-r-2 border-gray-200 flex flex-col items-center'>
+			<div className='w-96 min-h-full border-r-2 border-gray-200 flex flex-col items-center'>
 				<div className='w-full border-b-2 border-gray-200 h-24 flex items-center p-5 gap-3'>
 					<div className='avatar'>
 						<div className='w-12 rounded-full'>
@@ -83,7 +83,7 @@ const SideBar = () => {
 					New Chat
 				</Button>
 				<Modal open={visible} onClickBackdrop={toggleVisible} className='flex flex-col max-w-1/4 w-fit h-fit max-h-1/4'>
-					<Modal.Header className='font-bold text-center mb-2'>Select User</Modal.Header>
+					<Modal.Header className='font-bold text-center mb-2 uppercase'>Select User</Modal.Header>
 					{error && <div className='text-red-500 font-bold'>{error}</div>}
 					<Modal.Body className='overflow-x-scroll'>{userElements}</Modal.Body>
 				</Modal>
