@@ -10,17 +10,28 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import { collection, addDoc } from 'firebase/firestore';
 import { getOtherEmail } from '../../utils/getOtherEmail';
 import { Modal, Button } from 'react-daisyui';
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
+import useDarkMode from '../../utils/useDarkMode';
 
 const SideBar = () => {
 	const [visible, setVisible] = useState(false);
 	const [error, setError] = useState('');
+	const [colorTheme, setTheme] = useDarkMode();
+	const [dark, setDark] = useState(colorTheme === 'light' ? false : true);
+
 	const { user } = useAuth();
 	const navigate = useNavigate();
+
 	const [chatSnapshot] = useCollection(collection(db, 'chats'));
 	const [userSnapshot] = useCollection(collection(db, 'users'));
 
 	const chats = chatSnapshot?.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 	const users = userSnapshot?.docs.map(doc => ({ ...doc.data() }));
+
+	const toggleDarkMode = checked => {
+		setTheme(colorTheme);
+		setDark(checked);
+	};
 
 	const toggleVisible = () => {
 		setError('');
@@ -60,7 +71,10 @@ const SideBar = () => {
 				.filter(email => email !== user.email)
 				.map((email, idx) => {
 					return (
-						<div key={idx} className='font-bold p-1 text-center cursor-pointer hover:bg-gray-200 rounded' onClick={() => newChat(email)}>
+						<div
+							key={idx}
+							className='font-bold p-1 text-center cursor-pointer hover:bg-gray-200 rounded dark:hover:text-black'
+							onClick={() => newChat(email)}>
 							{email}
 						</div>
 					);
@@ -69,7 +83,7 @@ const SideBar = () => {
 
 	return (
 		<>
-			<div className='w-96 min-h-full border-r-2 border-gray-200 flex flex-col items-center'>
+			<div className='w-96 min-h-full border-r-2 border-gray-200 flex flex-col items-center dark:bg-zinc-800 dark:text-white'>
 				<div className='w-full border-b-2 border-gray-200 h-24 flex items-center p-5 gap-3'>
 					<div className='avatar'>
 						<div className='w-12 rounded-full'>
@@ -77,12 +91,16 @@ const SideBar = () => {
 						</div>
 					</div>
 					<div className='font-bold mr-auto'>{user.displayName}</div>
-					<LogoutOutlined className='text-xl cursor-pointer' onClick={handleLogout} />
+					<DarkModeSwitch checked={dark} onChange={toggleDarkMode} size={28} moonColor='black' sunColor='white' />
+					<LogoutOutlined className='text-2xl cursor-pointer flex items-center' onClick={handleLogout} />
 				</div>
-				<Button onClick={toggleVisible} className='w-64 mb-3 mt-5'>
+				<Button onClick={toggleVisible} className='w-64 mb-3 mt-5 bg-white text-black hover:bg-gray-300 dark:bg-slate-600 dark:text-white'>
 					New Chat
 				</Button>
-				<Modal open={visible} onClickBackdrop={toggleVisible} className='flex flex-col max-w-1/4 w-fit h-fit max-h-1/4'>
+				<Modal
+					open={visible}
+					onClickBackdrop={toggleVisible}
+					className='flex flex-col max-w-1/4 w-fit h-fit max-h-1/4 dark:text-white dark:bg-zinc-800'>
 					<Modal.Header className='font-bold text-center mb-2 uppercase'>Select User</Modal.Header>
 					{error && <div className='text-red-500 font-bold'>{error}</div>}
 					<Modal.Body className='overflow-x-scroll'>{userElements}</Modal.Body>

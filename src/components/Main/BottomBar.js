@@ -21,9 +21,9 @@ const BottomBar = ({ id, user }) => {
 				<input
 					type='text'
 					placeholder='Type here'
-					className='input input-bordered input-md w-full'
 					onChange={e => setInput(e.target.value)}
 					value={input}
+					className='p-3 focus:outline-none rounded-xl bg-gray-100 dark:bg-zinc-900 dark:text-white'
 				/>
 				<button type='submit' hidden onClick={sendMessage}>
 					Submit

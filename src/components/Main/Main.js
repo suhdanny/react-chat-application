@@ -18,7 +18,7 @@ const Main = () => {
 	const [chat] = useDocumentData(doc(db, 'chats', chatId));
 
 	return (
-		<div className='flex flex-col h-screen grow'>
+		<div className='flex flex-col h-screen grow dark:bg-zinc-800'>
 			<TopBar email={getOtherEmail(chat?.users, user)} />
 			<ChatLog messages={messages} user={user} />
 			<BottomBar id={chatId} user={user} />
