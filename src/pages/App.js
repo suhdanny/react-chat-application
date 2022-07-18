@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from '../components/Authentication/Login';
+import Login from './Login';
 import Chats from './Chats';
 import Main from '../components/Main/Main';
 import { Routes, Route } from 'react-router-dom';
