@@ -3,7 +3,7 @@ import { GoogleOutlined, FacebookOutlined } from '@ant-design/icons';
 import { GoogleAuthProvider, FacebookAuthProvider, signInWithRedirect } from 'firebase/auth';
 import { auth } from '../configs/firebase';
 
-const Login = () => {
+const Login: React.FC = () => {
 	return (
 		<div className='min-h-screen flex justify-center items-center bg-zinc-800'>
 			<div className='rounded-3xl text-center max-w-md py-9 px-16 border bg-white flex flex-col gap-7'>

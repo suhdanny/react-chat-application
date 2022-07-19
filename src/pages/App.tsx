@@ -4,7 +4,7 @@ import Chats from './Chats';
 import Main from '../components/Main/Main';
 import { Routes, Route } from 'react-router-dom';
 
-function App() {
+const App: React.FC = () => {
 	return (
 		<div className='min-h-screen font-sans box-border overflow-hidden'>
 			<Routes>
@@ -15,6 +15,6 @@ function App() {
 			</Routes>
 		</div>
 	);
-}
+};
 
 export default App;
