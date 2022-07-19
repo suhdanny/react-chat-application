@@ -4,7 +4,7 @@ import Chats from './Chats';
 import Main from '../components/Main/Main';
 import { Routes, Route } from 'react-router-dom';
 
-const App: React.FC = () => {
+const App: React.FC = (): JSX.Element => {
 	return (
 		<div className='min-h-screen font-sans box-border overflow-hidden'>
 			<Routes>
