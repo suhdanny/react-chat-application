@@ -1,4 +1,4 @@
-export type ChatType = {
+export type Chats = {
 	id: string;
 	users: string[];
 };
