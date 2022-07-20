@@ -13,11 +13,16 @@ import { Modal, Button } from 'react-daisyui';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import useDarkMode from '../../utils/useDarkMode';
 
-const SideBar = () => {
-	const [visible, setVisible] = useState(false);
-	const [error, setError] = useState('');
+type Chat = {
+	id: string;
+	users: string[];
+};
+
+const SideBar: React.FC = (): JSX.Element => {
+	const [visible, setVisible] = useState<boolean>(false);
+	const [error, setError] = useState<string>('');
 	const [colorTheme, setTheme] = useDarkMode();
-	const [dark, setDark] = useState(colorTheme === 'light' ? false : true);
+	const [dark, setDark] = useState<boolean>(colorTheme === 'light' ? false : true);
 
 	const { user } = useAuth();
 	const navigate = useNavigate();
@@ -28,7 +33,7 @@ const SideBar = () => {
 	const chats = chatSnapshot?.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 	const users = userSnapshot?.docs.map(doc => ({ ...doc.data() }));
 
-	const toggleDarkMode = checked => {
+	const toggleDarkMode = (checked: boolean) => {
 		setTheme(colorTheme);
 		setDark(checked);
 	};
@@ -43,20 +48,20 @@ const SideBar = () => {
 		navigate('/');
 	};
 
-	const redirect = id => {
+	const redirect = (id: string) => {
 		navigate(`/chats/${id}`);
 	};
 
-	const newChat = async email => {
+	const newChat = async (email: string) => {
 		if (!chatExists(email)) {
-			await addDoc(collection(db, 'chats'), { users: [user.email, email] });
+			await addDoc(collection(db, 'chats'), { users: [user?.email, email] });
 			toggleVisible();
 		} else {
 			setError('You already have a chat room with the user!');
 		}
 	};
 
-	const chatExists = email => chats?.find(chat => chat.users.includes(user.email) && chat.users.includes(email));
+	const chatExists = (email: string) => chats?.find(chat => chat.users.includes(user.email) && chat.users.includes(email));
 
 	const chatElements = chats
 		?.filter(chat => chat.users.includes(user.email))
