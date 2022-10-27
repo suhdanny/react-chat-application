@@ -1,16 +1,15 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, ReactNode } from 'react';
 import { onAuthStateChanged, User as FirebaseUser } from 'firebase/auth';
 import { auth } from '../configs/firebase';
 import { db } from '../configs/firebase';
 import { doc, updateDoc, arrayUnion, DocumentReference, DocumentData } from 'firebase/firestore';
 import { AuthContextInterface } from '../interfaces/AuthContextInterface';
-import { AuthProviderProps } from '../interfaces/AuthProviderProps';
 
 export const AuthContext = React.createContext<AuthContextInterface>({} as AuthContextInterface);
 
 export const useAuth = () => useContext(AuthContext);
 
-export const AuthProvider = ({ children }: AuthProviderProps) => {
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [user, setUser] = useState<FirebaseUser | null>(null);
 
@@ -21,7 +20,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 			setUser(user);
 			setLoading(false);
 			if (user) {
-				// navigate('/chats');
 				updateDoc(docRef, {
 					user: arrayUnion(user.email),
 				});

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Avatar from 'avataaars';
 import { generateRandomAvatarOptions } from '../../configs/avatar';
 
-const Chat = ({ users, redirect }) => {
+const ChatBox = ({ users, redirect }) => {
 	const [config] = useState(generateRandomAvatarOptions);
 
 	return (
@@ -13,4 +13,4 @@ const Chat = ({ users, redirect }) => {
 	);
 };
 
-export default Chat;
+export default ChatBox;

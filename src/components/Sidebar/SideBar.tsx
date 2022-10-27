@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Chat from './Chat';
+import ChatBox from './ChatBox';
 import { LogoutOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../configs/firebase';
@@ -12,11 +12,6 @@ import { getOtherEmail } from '../../utils/getOtherEmail';
 import { Modal, Button } from 'react-daisyui';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import useDarkMode from '../../utils/useDarkMode';
-
-type Chat = {
-	id: string;
-	users: string[];
-};
 
 const SideBar: React.FC = (): JSX.Element => {
 	const [visible, setVisible] = useState<boolean>(false);
@@ -68,7 +63,7 @@ const SideBar: React.FC = (): JSX.Element => {
 		.map(chat => {
 			const users = getOtherEmail(chat.users, user);
 
-			return <Chat key={chat.id} users={users} redirect={() => redirect(chat.id)} />;
+			return <ChatBox key={chat.id} users={users} redirect={() => redirect(chat.id)} />;
 		});
 
 	const userElements = users
